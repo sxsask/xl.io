@@ -50,10 +50,12 @@
         audio.play();
         playPauseButton.style.backgroundImage = "url('xl.png')";
         
+        audio.loop = true;
+
       } else {
         audio.pause();
         playPauseButton.style.backgroundImage = "url('xl.png')";
-        
+      
       }
     });
   </script>
