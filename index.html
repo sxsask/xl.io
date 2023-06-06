@@ -1,23 +1,61 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>龙哥专属BGM</title>
-    <style>
-        div{display: flex;
-            width: 20em;
-            height:20em;
-            margin: auto;
-            align-items: center; 
+  <title>音乐播放器</title>
+  <style>
+     html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #player {
+      position: relative;
+      width: 20em;
+      height: 20em;
+      border-radius: 50%;
+      background-color: #f2f2f2;
+      overflow: hidden;
+      margin: 0 auto;
+    }
 
-        }
-    </style>
+    #play-pause-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 23em;
+      height: 23em;
+      background-image: url("xl.png");
+      background-size: 100%;
+      cursor: pointer;
+
+    }
+
+  </style>
 </head>
 <body>
-    <div>
-    <audio autoplay="autoplay" loop="loop" preload="auto" controls="controls"src="./小龙专属BGM.mp3"></audio>
-</div>
+  <div id="player">
+    <audio id="audio" src="小龙专属BGM.mp3"></audio>
+    <div id="play-pause-button"></div>
+  </div>
+
+  <script>
+    var audio = document.getElementById("audio");
+    var playPauseButton = document.getElementById("play-pause-button");
+
+    playPauseButton.addEventListener("click", function() {
+      if (audio.paused) {
+        audio.play();
+        playPauseButton.style.backgroundImage = "url('xl.png')";
+        
+      } else {
+        audio.pause();
+        playPauseButton.style.backgroundImage = "url('xl.png')";
+        
+      }
+    });
+  </script>
 </body>
 </html>
